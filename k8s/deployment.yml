@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saleor-demo
+spec:
+  selector:
+    matchLabels:
+      app: saleor-demo
+  template:
+    metadata:
+      labels:
+        app: saleor-demo
+    spec:
+      containers:
+      - name: saleor-demo
+        image: bstsreg.azurecr.io/dashboard:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

@@ -1,0 +1,33 @@
+name: Build a Docker image and Push it to ACR
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: azure/docker-login@v1
+        with:
+          login-server: saleortest2.azurecr.io
+          username: ${{ secrets.ACR_username }}
+          password: ${{ secrets.ACR_password }}
+          
+      -   name: Build docker image and push to AC
+          run: |
+            docker compose build
+            docker images
+            docker tag saleor-code_dashboard saleortest2.azurecr.io/dashboard
+            docker tag saleor-code_api saleortest2.azurecr.io/api
+            docker push saleortest2.azurecr.io/dashboard
+            docker push saleortest2.azurecr.io/api
+
+      
+          

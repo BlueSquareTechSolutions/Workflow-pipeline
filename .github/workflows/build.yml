@@ -1,0 +1,31 @@
+name: Build image and push
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR }}
+          username: ${{ secrets.ACR_username }}
+          password: ${{ secrets.ACR_password }} 
+          
+          
+      - name: Build docker image and push to AC
+        run: |
+            docker compose build 
+            docker images
+            docker tag saleor-code_dashboard ${{ secrets.ACR }}/dashboard
+            docker tag saleor-code_api ${{ secrets.ACR }}/api
+            docker push ${{ secrets.ACR }}/dashboard
+            docker push ${{ secrets.ACR }}/api
+
+            
+
+      
+          
