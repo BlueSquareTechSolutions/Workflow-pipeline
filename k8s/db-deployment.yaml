@@ -33,7 +33,8 @@ spec:
               value: saleor
             - name: PGDATA
               value: "/var/lib/postgresql/data/pgdata"              
-          image: tejessaleor.azurecr.io/postgres:11.1-alpine
+          image: library/postgres:11.1-alpine
+
           name: db
           ports:
             - containerPort: 5432
