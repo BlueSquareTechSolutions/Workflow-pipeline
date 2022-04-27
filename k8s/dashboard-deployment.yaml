@@ -28,10 +28,6 @@ spec:
         name: dashboard
         ports:
           - containerPort: 9000
-        resources: {
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        }
+        resources: {}
       restartPolicy: Always
 status: {}
