@@ -16,7 +16,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - run: |
-            az aks create --resource-group aks-bsts --name bsts-aks --node-count 1 --generate-ssh-keys
             az aks start --name ${{ secrets.AKS_NAME }} --resource-group ${{ secrets.RG_NAME }}
       
       - name: Azure Kubernetes set context
