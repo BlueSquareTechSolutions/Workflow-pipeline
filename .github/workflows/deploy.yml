@@ -52,8 +52,10 @@ jobs:
         with:        
         # Path to the manifest files which will be used for deployment.
           manifests: |
-            k8s/deployment.yml
-            k8s/service.yml
+            k8s/dashboard-deployment.yaml
+            k8s/dashboard-service.yaml
+            k8s/api-deployment.yaml
+            k8s/api-service.yaml
         # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
           images: '${{ secrets.ACR }}/api'
         # Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files
