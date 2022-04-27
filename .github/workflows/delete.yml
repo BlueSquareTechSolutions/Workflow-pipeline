@@ -1,4 +1,4 @@
-name: Stop and Delete AKS
+name:  Delete AKS
 
 on:
   workflow_dispatch:
