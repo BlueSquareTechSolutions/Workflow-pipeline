@@ -58,9 +58,7 @@ jobs:
             k8s/saleor-media.yml
             k8s/api-deployment.yaml
             k8s/api-service.yaml
-            k8s/dashboard-deployment.yaml
-            k8s/dashboard-service.yaml
- 
+            
             
         # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
 #           images: '${{ secrets.ACR }}/dashboard'
