@@ -28,6 +28,7 @@ spec:
         name: dashboard
         ports:
           - containerPort: 9000
+        args: 
+          - "-API_URI=http://api:8000/graphql/"
         resources: {}
       restartPolicy: Always
-status: {}
