@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: api
+  template:
+    metadata:
+      labels:
+        io.kompose.network/saleorplatform-saleor-backend-tier: "true"
+        io.kompose.service: api
+    spec:
+      containers:
+      - name: api
+        image: bstsreg.azurecr.io/api:latest
+        env:
+          - name: CELERY_BROKER_URL
+            value: redis://redis:6379/1
+          - name: DASHBOARD_URL
+            value: http://localhost:9000/
+          - name: DATABASE_URL
+            value: postgres://saleor:saleor@db/saleor
+          - name: DEFAULT_FROM_EMAIL
+            value: noreply@example.com
+          - name: EMAIL_URL
+            value: smtp://mailhog:1025
+          - name: JAEGER_AGENT_HOST
+            value: jaeger
+          - name: SECRET_KEY
+            value: changeme
+          - name: STOREFRONT_URL
+            value: http://localhost:3000/
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+          - mountPath: /app/media
+            name: saleor-media
+      restartPolicy: Always
+      volumes:
+        - name: saleor-media
+          persistentVolumeClaim:
+            claimName: saleor-media
+status: {}
