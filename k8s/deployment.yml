@@ -14,14 +14,11 @@ spec:
       containers:
       - name: saleor-demo
         image: bstsreg.azurecr.io/dashboard:latest
-        name: dashboard
-        ports:
-          - containerPort: 9000
-        args: 
-          - "-API_URI=http://api:8000/graphql/"
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 9000
+        args: 
+          - "-API_URI=http://api:8000/graphql/"
