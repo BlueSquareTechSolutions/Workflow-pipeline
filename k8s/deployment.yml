@@ -14,6 +14,7 @@ spec:
       containers:
       - name: saleor-demo
         image: bstsreg.azurecr.io/api:latest
+        image: bstsreg.azurecr.io/dashboard:latest
         resources:
           limits:
             memory: "128Mi"
