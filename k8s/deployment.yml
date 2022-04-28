@@ -15,9 +15,7 @@ spec:
       - name: saleor-demo
         image: bstsreg.azurecr.io/dashboard:latest
         resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+          {}
         ports:
         - containerPort: 9000
         args: 
