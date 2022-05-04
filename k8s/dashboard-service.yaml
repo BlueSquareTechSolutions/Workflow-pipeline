@@ -6,14 +6,14 @@ metadata:
     kompose.version: 1.26.0 (HEAD)
   creationTimestamp: null
   labels:
-    io.kompose.service: dashboard
-  name: dashboard
+    io.kompose.service: saleor-demo
+  name: saleor-demo
 spec:
   ports:
     - name: "9000"
       port: 9000
       targetPort: 9000
   selector:
-    io.kompose.service: dashboard
+    io.kompose.service: saleor-demo
 status:
   loadBalancer: {}
