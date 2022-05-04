@@ -16,9 +16,7 @@ spec:
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -o ./.k8s
-        kompose.version: 1.26.0 (HEAD)
+     
       creationTimestamp: null
       labels:
         io.kompose.service: saleor-demo
