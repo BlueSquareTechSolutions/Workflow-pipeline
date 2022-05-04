@@ -58,8 +58,9 @@ jobs:
             k8s/saleor-media.yml
             k8s/api-deployment.yaml
             k8s/api-service.yaml
-            k8s/dashboard-deployment.yaml
-            k8s/dashboard-service.yaml
+            
+            k8s/deploymnet.yml
+            k8s/service.yml
 
             
             
