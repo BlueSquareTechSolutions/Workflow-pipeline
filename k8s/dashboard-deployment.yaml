@@ -1,9 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -o ./.k8s
-    kompose.version: 1.26.0 (HEAD)
   creationTimestamp: null
   labels:
     io.kompose.service: dashboard
@@ -13,13 +10,8 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: dashboard
-  strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -o ./.k8s
-        kompose.version: 1.26.0 (HEAD)
-      creationTimestamp: null
       labels:
         io.kompose.service: dashboard
     spec:
@@ -28,8 +20,4 @@ spec:
         image: bstsreg.azurecr.io/dashboard:latest
         ports:
           - containerPort: 9000
-        args: 
-          - "-API_URI=http://api:8000/graphql/"
-        resources: {}
       restartPolicy: Always
-status: {}
