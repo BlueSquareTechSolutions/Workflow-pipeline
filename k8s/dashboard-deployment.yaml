@@ -13,6 +13,7 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: dashboard
+  strategy: {}
   template:
     metadata:
       annotations:
@@ -31,3 +32,4 @@ spec:
           - "-API_URI=http://api:8000/graphql/"
         resources: {}
       restartPolicy: Always
+status: {}
