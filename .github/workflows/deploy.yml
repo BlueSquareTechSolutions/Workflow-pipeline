@@ -60,7 +60,6 @@ jobs:
             k8s/dashboard-service.yaml
             k8s/redis-deployment.yaml
             k8s/redis-service.yaml
-            k8s/service.yml
             k8s/ingress.yml
 
             
