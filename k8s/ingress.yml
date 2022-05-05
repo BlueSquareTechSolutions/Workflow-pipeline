@@ -22,7 +22,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: Dashboard
+            name: dashboard
             port:
               number: 9000
       - path: /(.*)
