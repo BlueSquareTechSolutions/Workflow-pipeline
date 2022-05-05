@@ -52,4 +52,4 @@ spec:
             name: api
             port: 
               number: 8000
-        path: /static(/|$)(.*)
+        
