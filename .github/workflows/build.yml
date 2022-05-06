@@ -16,7 +16,7 @@ jobs:
           
       - name: ACR creation if doesnt exist
         run: |
-          az acr create --resource-group aks-bsts --name bstsreg --sku Basic
+          az acr create --resource-group ${{ secrets.RG_NAME }} --name ${{ secrets.ACR_NAME }} --sku Basic
 
       
       
