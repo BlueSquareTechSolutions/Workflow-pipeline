@@ -9,6 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+          run: |
+              az acr create --resource-group aks-bsts \ --name bstsreg --sku Basic
+          
       - uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.ACR }}
