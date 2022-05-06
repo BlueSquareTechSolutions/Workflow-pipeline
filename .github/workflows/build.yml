@@ -14,8 +14,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
-          run: |
-              az acr create --resource-group aks-bsts \ --name bstsreg --sku Basic
+      - name: ACR creation if doesnt exist
+        run: |
+          az acr create --resource-group aks-bsts \ --name bstsreg --sku Basic
+      
+      
           
       - uses: azure/docker-login@v1
         with:
