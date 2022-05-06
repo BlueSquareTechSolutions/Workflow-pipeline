@@ -12,8 +12,8 @@ jobs:
       - uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.ACR }}
-          username: ${{ secrets.AZURE_CREDENTIALS.clientId }}
-          password: ${{ secrets.AZURE_CREDENTIALS.clientSecret }} 
+          username: ${{ secrets.ACR_username }}
+          password: ${{ secrets.ACR_password }} 
           
           
       - name: Build docker image and push to AC
