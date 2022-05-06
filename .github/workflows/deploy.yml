@@ -45,8 +45,10 @@ jobs:
           secret-name: docker-image-pull-secret
           resource-group: ${{ secrets.RG_NAME }}
           cluster-name: ${{ secrets.AKS_NAME }}
+      # install ingress controller to hit AKS    
+      - run: |
+          kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
           
-      
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v1
         with:        
@@ -65,7 +67,8 @@ jobs:
             
             
         # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
-#           images: '${{ secrets.ACR }}/dashboard'
+
+      
         # Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files
           imagepullsecrets: docker-image-pull-secret
         # deploy/promote/reject
