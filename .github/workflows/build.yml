@@ -20,7 +20,7 @@ jobs:
 
       - name: ACR login
         run: |
-          docker login bstsreg.azurecr.io --username c93af96d-c7f3-4294-81e6-c2bafd7afc80 --password dBK-bXLW9gfuAuCmsszEW0c-XBRj5OhSwn  
+          docker login bstsreg.azurecr.io --username ${{ secrets.ACR_username }} --password ${{ secrets.ACR_password }}  
       
           
 # #       - uses: azure/docker-login@v1
