@@ -9,10 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Azure Login
-        uses: azure/login@v1
+      - uses: azure/docker-login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }} 
+          login-server: ${{ secrets.ACR }}
+          username: ${{ secrets.ACR_username }}
+          password: ${{ secrets.ACR_password }} 
           
           
       - name: Build docker image and push to AC
