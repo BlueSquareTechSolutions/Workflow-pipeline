@@ -18,14 +18,16 @@ jobs:
         run: |
           az acr create --resource-group ${{ secrets.RG_NAME }} --name ${{ secrets.ACR_NAME }} --sku Basic
 
-      
+      - name: ACR login
+        run: |
+          docker login bstsreg.azurecr.io --username ${{ secrets.ACR_username }} --password ${{ secrets.ACR_password }}  
       
           
-      - uses: azure/docker-login@v1
-        with:
-          login-server: ${{ secrets.ACR }}
-          username: ${{ secrets.ACR_username }}
-          password: ${{ secrets.ACR_password }} 
+# #       - uses: azure/docker-login@v1
+#         with:
+#           login-server: ${{ secrets.ACR }}
+#           username: ${{ secrets.ACR_username }}
+#           password: ${{ secrets.ACR_password }} 
           
           
       - name: Build docker image and push to AC
